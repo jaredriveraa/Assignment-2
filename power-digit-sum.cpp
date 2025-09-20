@@ -4,10 +4,10 @@
                     // you need this inclusion to use stoi which will allow for the conversion in C++
 
 using namespace std; 
-int pow(int base ,int power) { //loop is responsible for calculating the power. the loop essentially uses b as the limiter and multiplies a against itself until it reaches b number of times
-    int sum = 1;
-    for (int i = 0; i < power; i++) {
-        sum *= base;
+unsigned long long pow(unsigned int base , unsigned int power) { //loop is responsible for calculating the power. the loop essentially uses b as the limiter and multiplies a against itself until it reaches b number of times
+    unsigned long long sum = 1;
+    for (unsigned int i = 0; i < power; i++) {
+        sum = sum * base;
     }
     return sum; 
     }
@@ -27,9 +27,9 @@ int main() { //chose ints for a,b,n because realistically the user will not inpu
     string a_string; // initalizing a and b as string variables
     string b_string;
     
-    cout << "a:";
+    cout << "a:" <<endl;
     cin >> a_string; //taking in user input as strings
-    cout << "b:";
+    cout << "b:" <<endl;
     cin >> b_string;
 
 
@@ -37,13 +37,10 @@ int main() { //chose ints for a,b,n because realistically the user will not inpu
         cout << "The inputs must be numbers. Please try again and enter a number" <<endl;
     }
 
-    int a = stoi(a_string); //converting a and b into integers using stoi() to compute the power manually
-    int b = stoi(b_string); //must create new int variables
+    unsigned int a = stoi(a_string); //converting a and b into integers using stoi() to compute the power manually
+    unsigned int b = stoi(b_string); //must create new int variables
 
-    if (a < 0 || b < 0) {
-        cout << "Both inputs must be positive numbers. Please try again and enter numbers greater than 0" <<endl;
-    }
-    int answer = pow(a,b); //call the function pow to retrieve the answer
+    unsigned long long answer = pow(a,b); //call the function pow to retrieve the answer
     cout << answer << endl;
 
     int sum = 0; //calculating the sum of the digits using modulus division since I classified the answer as an int already
